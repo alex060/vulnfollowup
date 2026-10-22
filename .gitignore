@@ -1,0 +1,71 @@
+# ==========================================
+# VulnFollowUp - Global Git Ignore
+# ==========================================
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.lnk
+
+# Environment & Secrets (NEVER COMMIT SENSITIVE DATA)
+.env
+.env.local
+*.pem
+*.key
+*.pfx
+secrets.json
+
+# IDE and Editor settings
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# Java / Spring Boot / Maven / Gradle
+target/
+build/
+.gradle/
+*.class
+*.jar
+*.war
+*.ear
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Node.js / Frontend (React / Vue / Angular / SPA)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+coverage/
+*.local
+
+# Android (PMDM)
+local.properties
+.cxx/
+*.apk
+*.aab
+captures/
+.externalNativeBuild/
+.navigation/
+
+# Logs & Temporary files
+*.log
+logs/
+temp/
+tmp/

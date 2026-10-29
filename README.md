@@ -139,3 +139,14 @@ npm run dev
 
 ## 7. License & Academic Attribution
 Developed for the Intermodular Project at **Instituto Nebrija de Formación Profesional**, Academic Year 2026-2027.
+
+## 8. Project Guide & Shared Team Workflow
+
+The Spanish step-by-step guide explains the requirements, implementation order, checks, and shared learning workflow for **Alex, Adri, and Pablo**:
+
+- [Step-by-step guide (PDF)](output/pdf/Guia_realizacion_VulnFollowUp.pdf)
+- [Editable guide (Markdown)](docs/GUIA_REALIZACION_VULNFOLLOWUP.md)
+- [Shared task board](docs/equipo/TABLERO_COMPARTIDO.md)
+- [Shared knowledge checklist](docs/equipo/CONOCIMIENTO.md)
+
+Start by reading sections 1-4 together. Each technical task has a rotating lead, reviewer, and demonstrator. The task board and knowledge checklist start as pending; they describe planned work, not completed implementation.

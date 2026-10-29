@@ -1,0 +1,2 @@
+# Keep PDF bytes intact across Windows and other platforms.
+*.pdf binary

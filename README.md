@@ -144,7 +144,7 @@ Developed for the Intermodular Project at **Instituto Nebrija de Formación Prof
 
 The Spanish step-by-step guide explains the requirements, implementation order, checks, and shared learning workflow for **Alex, Adri, and Pablo**:
 
-- [Step-by-step guide (PDF)](output/pdf/Guia_realizacion_VulnFollowUp.pdf)
+- [Step-by-step guide (PDF)](Guia_realizacion_VulnFollowUp.pdf)
 - [Editable guide (Markdown)](docs/GUIA_REALIZACION_VULNFOLLOWUP.md)
 - [Shared task board](docs/equipo/TABLERO_COMPARTIDO.md)
 - [Shared knowledge checklist](docs/equipo/CONOCIMIENTO.md)

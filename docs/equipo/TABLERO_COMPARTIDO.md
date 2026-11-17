@@ -10,7 +10,7 @@ Estados sugeridos: Pendiente > En curso > En revisión > Por explicar > Terminad
 
 | Tarea | Lleva | Revisa | Demuestra | Hace falta antes | Estado |
 | --- | --- | --- | --- | --- | --- |
-| T01. Alcance, tecnologías y contrato inicial | Alex | Adri | Pablo | Leer el enunciado juntos | Pendiente |
+| T01. Alcance, tecnologías y contrato inicial | Alex | Adri | Pablo | Leer el enunciado juntos | En revisión |
 | T02. Proyectos y arranque | Adri | Pablo | Alex | T01 | Pendiente |
 | T03. Tablas y datos de prueba | Pablo | Alex | Adri | T01-T02 | Pendiente |
 | T04. Login y permisos | Alex | Pablo | Adri | T03 | Pendiente |
@@ -71,3 +71,26 @@ Los tres participan en vídeo y defensa, revisan sus contribuciones y actualizan
 Al empezar: cinco minutos para decir qué hizo cada uno, qué hará y qué necesita. Al terminar una tarea: explicación breve, revisión y demostración por otro. Ajustar la duración a la dificultad; dividir tareas demasiado grandes.
 
 Antes de entregar: ensayo con intercambio de presentadores y preguntas individuales mezcladas. Ninguno responde por otro antes de que termine su explicación.
+
+---
+
+## Fichas de tareas realizadas
+
+### Ficha T01: Alcance, tecnologías y contrato inicial
+* **Identificador y objetivo:** Definir stack unificado, versiones, estándar CVSS (3.1 Base), roles RBAC y contrato JSON inicial de la API REST para desbloquear T02 y T03.
+* **Lleva / Revisa / Demuestra:** Alex / Adri / Pablo.
+* **Dependencias:** Lectura de requisitos de `Proyecto_Intermodular_2DAM_VulnFollowUp (1).pdf` y `docs/GUIA_REALIZACION_VULNFOLLOWUP.md`.
+* **Pasos realizados:**
+  1. Redactado documento de stack, puertos y reglas en `docs/decisiones_tecnicas.md`.
+  2. Acordado CVSS v3.1 Base y descarte de CVSS 4.0 en fase inicial.
+  3. Matriz RBAC definida para `ADMIN`, `ANALYST` y `VIEWER`.
+  4. Redactado el contrato completo de endpoints y DTOs en `docs/api/README.md`.
+* **Comprobación normal y de error:**
+  - Caso normal: El contrato describe los flujos principales (salud, login, activos, vulnerabilidades, remediación con versión y proveedores).
+  - Caso error: Se contemplan códigos 400 (validación), 401 (sin credenciales), 403 (falta de permisos), 404 y 409 (conflicto de concurrencia optimista).
+* **Aportación de revisión (pendiente de Adri):** Validación de versiones para el entorno de arranque (T02).
+* **Evidencia:** Archivos `docs/decisiones_tecnicas.md` y `docs/api/README.md`.
+* **Explicación compartida (pendiente de Pablo):** Demostración y resumen del recorrido de datos antes de pasar a T02.
+* **Tiempo real:** Alex: 45 min (análisis, redacción y contrato).
+* **Estado y siguiente paso:** En revisión. Siguiente paso: Adri arranca proyectos en T02.
+

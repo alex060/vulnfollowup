@@ -1,12 +1,26 @@
-# Desktop / SPA Web Client (DI)
+# Desktop / SPA Web Client (DI) - VulnFollowUp
 
-This module contains the primary administrative and analytical interface for `ADMIN` and `ANALYST` users.
+Este módulo contiene la interfaz web administrativa y analítica para usuarios `ADMIN` y `ANALYST`.
 
-## Requirements (Desarrollo de Interfaces)
-- **Architecture**: Modern component-based framework (React, Angular, Vue, or Ionic).
-- **Accessibility**: Strict compliance with WCAG 2.1 AA standards (color contrast, keyboard focus, ARIA semantics).
-- **Dashboard**: Interactive data visualizations and charts displaying vulnerabilities by severity and status.
-- **Reporting**: Exportable summaries in CSV / PDF format.
-- **Packaging & Deployment**:
-  - Desktop native wrapper (Electron Forge or Tauri) OR
-  - Dockerized production SPA with an optimized Nginx container (`docker-compose.yml`).
+## Tecnologías utilizadas (T01/T02)
+- **Framework:** React 18 + TypeScript + Vite
+- **Linter:** ESLint
+- **Puerto de desarrollo:** `5173` (Base URL: `http://localhost:5173`)
+- **Estándares de accesibilidad previstos:** WCAG 2.1 AA
+
+## Instrucciones de arranque local
+
+1. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+2. Iniciar el servidor de desarrollo en caliente:
+   ```bash
+   npm run dev
+   ```
+3. Abrir en el navegador: [http://localhost:5173](http://localhost:5173)
+
+4. Compilar para producción:
+   ```bash
+   npm run build
+   ```

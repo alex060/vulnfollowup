@@ -1,0 +1,17 @@
+# Puerto del servidor Backend API
+server.port=8080
+
+# Nombre de la aplicacion
+spring.application.name=backend
+
+# Configuracion de conexion a la base de datos PostgreSQL
+# Modifica usuario y contraseña segun tu configuracion local si es necesario
+spring.datasource.url=jdbc:postgresql://localhost:5432/vulnfollowup_db
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# Configuracion JPA / Hibernate
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true

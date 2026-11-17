@@ -4,8 +4,8 @@
 * **Responsable de la propuesta (Lleva):** Alex
 * **Revisión técnica (Revisa):** Adri
 * **Demostración y comprensión (Demuestra):** Pablo
-* **Fecha:** 15 de noviembre de 2026
-* **Estado:** En revisión por Adri y Pablo
+* **Fecha:** 15 de noviembre de 2026 (Revisión técnica de Adri: 17 de noviembre de 2026)
+* **Estado:** Entregada por Alex y Revisada por Adri (aprobada con cambio a PostgreSQL). Pendiente de demostración oral por Pablo.
 
 ---
 
@@ -17,7 +17,7 @@ Para evitar incompatibilidades entre los equipos de desarrollo y asegurar que to
 | :--- | :--- | :--- | :--- |
 | **Backend API** | Java + Spring Boot | Java 21 LTS (compatible con JDK 24 en local) / Spring Boot 3.3.x | Se usa el Maven Wrapper (`./mvnw`) para unificar dependencias sin depender de la instalación global. |
 | **Starters Spring** | Web, Security, Data JPA, Validation | Spring Boot Starters estándar | Evita conflictos de logging manual; validaciones con anotaciones `@NotNull`, `@Size`, etc. |
-| **Base de Datos** | MySQL (o PostgreSQL) en Docker | MySQL 8.4 LTS (puerto host `3307:3306`) | Se aprovecha el contenedor Docker `dam-mysql` ya configurado para las prácticas del ciclo. |
+| **Base de Datos** | PostgreSQL (Docker o local) | PostgreSQL 16 LTS (puerto host `5432:5432`) | Decisión revisada por Adri: la guía oficial del proyecto toma PostgreSQL como referencia directa (apartados 5 y 16, doc [R6]). Además de ofrecer un soporte transaccional y niveles de aislamiento más estrictos para los requisitos de concurrencia y rollback (T08/T10), el equipo está mucho más habituado a su manejo y herramientas de clase, lo que nos dará mayor agilidad y evitará fricciones innecesarias con dialectos o tipos de datos. |
 | **Web / Desktop** | React + TypeScript + Vite | React 18 / Node 20 LTS o 24 local | Permite tipado estricto con interfaces compartidas con los DTOs del backend. |
 | **Móvil** | Android nativo (Kotlin) | Android SDK 34 (Android 14) / Room / Compose | Conexión HTTP al backend común y persistencia local para modo offline. |
 | **Distribución Web** | Docker + Nginx | Imagen Nginx Alpine | Servirá la SPA compilada (`dist`) en producción. |
@@ -27,7 +27,7 @@ Para evitar incompatibilidades entre los equipos de desarrollo y asegurar que to
 ## 2. Decisión sobre el Estándar CVSS
 
 * **Decisión acordada:** Se implementará **CVSS v3.1 Base Metrics**.
-* **Justificación:** El enunciado permite elegir entre CVSS v3.1 y v4.0. Implementar ambas o saltar a la 4.0 añade una complejidad innecesaria en la fórmula matemática en esta primera fase. Con CVSS 3.1 cubrimos al 100% el requisito del módulo de seguridad.
+* **Justificación:** El enunciado permite elegir entre CVSS v3.1 y v4.0. Implementar ambas o saltar a la 4.0 añade una complejidad innecesaria en la fórmula matemática en esta primera fase. Con CVSS 3.1 cubrimos al 100% el requisito del módulo de seguridad. Además, tal y como valida Adri en la revisión, al ser una versión previa ya asentada disponemos de abundante documentación oficial, calculadoras contrastadas y muchos más vectores reales verificados en FIRST/NVD para validar nuestros casos de prueba sin margen de error.
 * **Métricas Base a registrar:**
   * Attack Vector (AV): `NETWORK`, `ADJACENT`, `LOCAL`, `PHYSICAL`.
   * Attack Complexity (AC): `LOW`, `HIGH`.
@@ -83,7 +83,7 @@ Los estados internos en base de datos se gestionarán mediante un enumerado estr
 ## 5. Puerto y Variables de Entorno
 
 * **Puerto API Backend:** `8080` (Base URL: `http://localhost:8080/api`).
-* **Puerto Base de Datos:** `3307` (mapeado al 3306 del contenedor Docker).
+* **Puerto Base de Datos:** `5432` (estándar de PostgreSQL en Docker o servicio local).
 * **Puerto Frontend Vite:** `5173`.
 * **Configuración:** Se incluirá un archivo `backend/src/main/resources/application.properties.example` con variables documentadas para que cada compañero clone y configure su conexión local sin subir credenciales privadas a Git.
 

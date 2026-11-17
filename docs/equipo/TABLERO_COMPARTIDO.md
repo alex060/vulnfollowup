@@ -10,8 +10,8 @@ Estados sugeridos: Pendiente > En curso > En revisión > Por explicar > Terminad
 
 | Tarea | Lleva | Revisa | Demuestra | Hace falta antes | Estado |
 | --- | --- | --- | --- | --- | --- |
-| T01. Alcance, tecnologías y contrato inicial | Alex | Adri | Pablo | Leer el enunciado juntos | En revisión |
-| T02. Proyectos y arranque | Adri | Pablo | Alex | T01 | Pendiente |
+| T01. Alcance, tecnologías y contrato inicial | Alex | Adri | Pablo | Leer el enunciado juntos | Entregada y revisada |
+| T02. Proyectos y arranque | Adri | Pablo | Alex | T01 | Entregada por Adri (en revisión) |
 | T03. Tablas y datos de prueba | Pablo | Alex | Adri | T01-T02 | Pendiente |
 | T04. Login y permisos | Alex | Pablo | Adri | T03 | Pendiente |
 | T05. API de activos | Adri | Alex | Pablo | T03-T04 | Pendiente |
@@ -88,9 +88,29 @@ Antes de entregar: ensayo con intercambio de presentadores y preguntas individua
 * **Comprobación normal y de error:**
   - Caso normal: El contrato describe los flujos principales (salud, login, activos, vulnerabilidades, remediación con versión y proveedores).
   - Caso error: Se contemplan códigos 400 (validación), 401 (sin credenciales), 403 (falta de permisos), 404 y 409 (conflicto de concurrencia optimista).
-* **Aportación de revisión (pendiente de Adri):** Validación de versiones para el entorno de arranque (T02).
+* **Aportación de revisión (Adri):** Revisión completada y aprobada con una corrección técnica: adopción definitiva de **PostgreSQL** en lugar de MySQL. Justificación: es la base recomendada por la guía del proyecto y la que el equipo domina con mayor soltura de clase, lo que nos evitará tropiezos con tipos de datos o dialectos y permitirá avanzar mucho más rápido; además, encaja de forma nativa con los requisitos de transacciones, rollback y niveles de concurrencia de la guía (T08/T10). Asimismo, se ratifica la elección de **CVSS 3.1 Base** frente a la versión 4.0 al tratarse de un estándar más maduro y contrastado, con mayor volumen de documentación, calculadoras y vectores oficiales de FIRST para verificar las pruebas.
 * **Evidencia:** Archivos `docs/decisiones_tecnicas.md` y `docs/api/README.md`.
-* **Explicación compartida (pendiente de Pablo):** Demostración y resumen del recorrido de datos antes de pasar a T02.
-* **Tiempo real:** Alex: 45 min (análisis, redacción y contrato).
-* **Estado y siguiente paso:** En revisión. Siguiente paso: Adri arranca proyectos en T02.
+* **Explicación compartida (pendiente de Pablo):** Demostración y resumen del recorrido de datos para el cierre definitivo de T01.
+* **Tiempo real:** Alex: 45 min (análisis, redacción y contrato) | Adri: 20 min (revisión de contrato, ajuste de base de datos a PostgreSQL y validación de CVSS 3.1).
+* **Estado y siguiente paso:** Entregada y revisada. Siguiente paso: Adri inicia la creación de proyectos y arranque en T02.
 
+
+
+### Ficha T02: Crear proyectos y hacer que arranquen
+* **Identificador y objetivo:** Crear los proyectos base en `backend/`, `desktop-client/` y `android-app/`, verificando que compilan, arrancan y se comunican con su entorno local.
+* **Lleva / Revisa / Demuestra:** Adri / Pablo / Alex.
+* **Dependencias:** T01 entregada y revisada.
+* **Pasos realizados:**
+  1. **Backend (Spring Boot):** Generado en `backend/` con Java 21 LTS (Spring Boot 4.1.2), Maven Wrapper (`mvnw`), dependencias de Web, Data JPA, PostgreSQL y Validation. Creado el endpoint de salud `HealthController` (`GET /api/health`).
+  2. **Configuración BD:** Preparado `application.properties.example` para PostgreSQL en puerto 5432.
+  3. **Frontend Web (React + Vite):** Generado en `desktop-client/` con React 18, TypeScript, ESLint y Vite. Verificado el arranque en caliente con `npm run dev` en puerto 5173.
+  4. **App Móvil (Android):** Creado en `android-app/` mediante Android Studio con plantilla *Empty Activity*, Kotlin y Jetpack Compose, listo para compilar y ejecutar en emulador.
+  5. **Documentación:** Actualizados los `README.md` de cada subproyecto con instrucciones paso a paso para arranque limpio.
+* **Comprobación normal y de error:**
+  - Caso normal: Backend compila sin errores (`BUILD SUCCESS`), responde `GET /api/health` con JSON `{"status": "UP"}`. Web arranca en `http://localhost:5173/`. Android compila y sincroniza Gradle correctamente.
+  - Caso error: La falta de archivo de configuración de base de datos se previene mediante `application.properties.example` para evitar fugas de credenciales en Git.
+* **Aportación de revisión (pendiente de Pablo):** Pablo comprueba versiones, dependencias y pasos de arranque en copia limpia.
+* **Evidencia:** Repositorio con los tres proyectos funcionales y capturas de arranque web (`Vite ready`), backend (`HealthController`) y Android Studio (`MainActivity.kt`).
+* **Demostración (pendiente de Alex):** Alex arranca los servicios siguiendo las instrucciones de Adri.
+* **Tiempo real:** Adri: 60 min (generación de proyectos, pruebas de compilación y documentación).
+* **Estado y siguiente paso:** Entregada por Adri. Siguiente paso: Pablo revisa y Alex demuestra. Pablo puede empezar T03 (Diseño de base de datos).

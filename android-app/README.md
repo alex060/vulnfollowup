@@ -13,3 +13,12 @@ This module contains the native Android client for VulnFollowUp.
   - Local caching layer using **Room** or **Jetpack DataStore** to enable offline inspection of the latest vulnerability dataset.
 - **Testing**:
   - Emulator and physical device testing plan.
+
+
+## Instrucciones de arranque local (T02)
+
+1. Abrir Android Studio y seleccionar la carpeta `android-app/`.
+2. Esperar la sincronización de Gradle (`Gradle Sync`).
+3. Seleccionar un emulador Android (API 26+) o dispositivo físico con depuración USB habilitada.
+4. Ejecutar con **Run 'app'** (`Shift + F10`).
+5. La pantalla inicial mostrará el mensaje básico con Jetpack Compose.
